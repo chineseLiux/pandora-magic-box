@@ -2,7 +2,9 @@
 const Layout = () => {
   return (
       <>
-        layout
+        <div>
+          layout
+        </div>
       </>
   )
 }
