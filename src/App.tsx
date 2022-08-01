@@ -2,6 +2,7 @@ import Login from "./pages/login";
 import Layout from "./pages/layout";
 import './App.css'
 import {Route, Routes} from "react-router-dom";
+import Auth from "./pages/login/Auth";
 
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
       <>
         <Routes>
           <Route path="/login" element={<Login />} ></Route>
-          <Route path="/*" element={<Layout />} ></Route>
+          <Route path="/*" element={<Auth><Layout /></Auth>} ></Route>
         </Routes>
       </>
   )
