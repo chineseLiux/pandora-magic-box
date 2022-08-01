@@ -14,7 +14,13 @@ import {
 } from '@ant-design/pro-components';
 import { Button, Divider, message, Space, Tabs } from 'antd';
 import type { CSSProperties } from 'react';
-import { useState } from 'react';
+import {useEffect, useState} from 'react';
+import {useNavigate} from "react-router-dom";
+import {CurrentUser} from "../../store/types";
+import {connect} from "react-redux";
+import {Dispatch} from "@reduxjs/toolkit";
+import {setCurrentUser} from "../../store/actions";
+import userData from "../../pages/login/userData";
 
 type LoginType = 'phone' | 'account';
 
@@ -24,8 +30,30 @@ const iconStyles: CSSProperties = {
   verticalAlign: 'middle',
   cursor: 'pointer',
 };
-
-const Login = () => {
+const waitTime = (time: number = 100) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(true);
+    }, time);
+  });
+};
+const Login = ({currentUser, dispatch}: {currentUser: CurrentUser, dispatch: Dispatch}) => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (currentUser) {
+      navigate('/dashboard/workplace');
+    }
+  })
+  const submit = async ({username, password}: { username: string, password: string }) => {
+    await waitTime(2000);
+    if (username !== 'admin' || password !== '123123') {
+      message.error('账号或密码错误！')
+      return;
+    }
+    dispatch(setCurrentUser(userData));
+    message.success('登录成功！');
+    navigate('/dashboard/workplace');
+  }
   const [loginType, setLoginType] = useState<LoginType>('account');
   return (
       <div style={{ backgroundColor: 'white', height: 'calc(100vh)'}}>
@@ -114,6 +142,12 @@ const Login = () => {
                 </Space>
               </div>
             }
+            onFinish={async (values) => {
+              await submit({
+                username: values.username,
+                password: values.password
+              })
+            }}
         >
           <Tabs activeKey={loginType} onChange={(activeKey) => setLoginType(activeKey as LoginType)}>
             <Tabs.TabPane key={'account'} tab={'账号密码登录'} />
@@ -127,7 +161,7 @@ const Login = () => {
                       size: 'large',
                       prefix: <UserOutlined className={'prefixIcon'} />,
                     }}
-                    placeholder={'用户名: admin or user'}
+                    placeholder={'用户名'}
                     rules={[
                       {
                         required: true,
@@ -141,7 +175,7 @@ const Login = () => {
                       size: 'large',
                       prefix: <LockOutlined className={'prefixIcon'} />,
                     }}
-                    placeholder={'密码: ant.design'}
+                    placeholder={'密码'}
                     rules={[
                       {
                         required: true,
@@ -219,7 +253,9 @@ const Login = () => {
       </div>
   );
 }
-
-export default Login;
+const mapStateToProps = (state: { currentUser: CurrentUser }) => ({
+  currentUser: state.currentUser
+})
+export default connect(mapStateToProps)(Login);
 
 
