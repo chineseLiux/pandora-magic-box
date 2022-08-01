@@ -6,15 +6,23 @@ import './utils/axios/index'
 import 'antd/es/style/default.less'
 import './index.less'
 import {BrowserRouter} from "react-router-dom";
+import {Provider} from "react-redux";
+import {PersistGate} from "redux-persist/integration/react";
+import store, {persist} from "./store";
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
+
   <React.StrictMode>
-    <ConfigProvider
-      componentSize="small"
-    >
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </ConfigProvider>
+    <Provider store={store}>
+      <PersistGate persistor={persist} loading={null}>
+        <ConfigProvider
+            componentSize="small"
+        >
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </ConfigProvider>
+      </PersistGate>
+    </Provider>
   </React.StrictMode>
 )
