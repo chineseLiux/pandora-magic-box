@@ -3,11 +3,11 @@ import { Tag, message } from 'antd';
 import { groupBy } from 'lodash';
 import moment from 'moment';
 
-import NoticeIcon from 'src/pages/layout/RightContent/NoticeIconView/NoticeIcon';
+import NoticeIcon from '@/pages/layout/RightContent/NoticeIconView/NoticeIcon';
 import styles from './index.module.less';
-import {CurrentUser, NoticeIconItem} from "src/store/types";
+import {CurrentUser, NoticeIconItem} from "@/store/types";
 import {connect} from "react-redux";
-import noticesData from "src/pages/layout/RightContent/NoticeIconView/noticesData";
+import noticesData from "@/pages/layout/RightContent/NoticeIconView/noticesData";
 
 
 const getNoticeData = (notices: NoticeIconItem[]): Record<string, NoticeIconItem[]> => {

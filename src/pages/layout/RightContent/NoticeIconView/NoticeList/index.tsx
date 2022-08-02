@@ -3,7 +3,7 @@ import { Avatar, List } from 'antd';
 import React from 'react';
 import classNames from 'classnames';
 import styles from './index.module.less';
-import {NoticeIconItemType, NoticeIconItem} from '@/redux/store/typings'
+import {NoticeIconItemType, NoticeIconItem} from '@/store/types'
 
 export type NoticeIconTabProps = {
   count?: number;

@@ -1,5 +1,4 @@
 import {ProCard, Statistic, StatisticCard} from '@ant-design/pro-components';
-import RcResizeObserver from 'rc-resize-observer';
 import React, {useEffect, useState} from 'react';
 import {GridContent} from "@ant-design/pro-layout";
 import {Card, Col, Row} from "antd";
@@ -24,67 +23,60 @@ const Analysis = () => {
           <Row gutter={24}>
             <Col lg={24} md={24}>
               <Card bordered={true} style={{ marginBottom: 24 }} loading={loading}>
-                <RcResizeObserver
-                    key="resize-observer"
-                    onResize={(offset) => {
-                      setResponsive(offset.width < 596);
-                    }}
-                >
-                  <StatisticCard.Group direction={responsive ? 'column' : 'row'}>
-                    <StatisticCard
-                        statistic={{
-                          title: '支付金额',
-                          value: 2176,
-                          icon: (
-                              <img
-                                  style={imgStyle}
-                                  src="https://gw.alipayobjects.com/mdn/rms_7bc6d8/afts/img/A*dr_0RKvVzVwAAAAAAAAAAABkARQnAQ"
-                                  alt="icon"
-                              />
-                          ),
-                        }}
-                    />
-                    <StatisticCard
-                        statistic={{
-                          title: '访客数',
-                          value: 475,
-                          icon: (
-                              <img
-                                  style={imgStyle}
-                                  src="https://gw.alipayobjects.com/mdn/rms_7bc6d8/afts/img/A*-jVKQJgA1UgAAAAAAAAAAABkARQnAQ"
-                                  alt="icon"
-                              />
-                          ),
-                        }}
-                    />
-                    <StatisticCard
-                        statistic={{
-                          title: '支付成功订单数',
-                          value: 87,
-                          icon: (
-                              <img
-                                  style={imgStyle}
-                                  src="https://gw.alipayobjects.com/mdn/rms_7bc6d8/afts/img/A*FPlYQoTNlBEAAAAAAAAAAABkARQnAQ"
-                                  alt="icon"
-                              />
-                          ),
-                        }}
-                    />
-                    <StatisticCard
-                        statistic={{
-                          title: '浏览量',
-                          value: 1754,
-                          icon: (
-                              <img
-                                  style={imgStyle}
-                                  src="https://gw.alipayobjects.com/mdn/rms_7bc6d8/afts/img/A*pUkAQpefcx8AAAAAAAAAAABkARQnAQ"
-                                  alt="icon"
-                              />
-                          ),
-                        }}
-                    />
-                  </StatisticCard.Group>
-                </RcResizeObserver>
+                <StatisticCard.Group direction={responsive ? 'column' : 'row'}>
+                  <StatisticCard
+                      statistic={{
+                        title: '支付金额',
+                        value: 2176,
+                        icon: (
+                            <img
+                                style={imgStyle}
+                                src="https://gw.alipayobjects.com/mdn/rms_7bc6d8/afts/img/A*dr_0RKvVzVwAAAAAAAAAAABkARQnAQ"
+                                alt="icon"
+                            />
+                        ),
+                      }}
+                  />
+                  <StatisticCard
+                      statistic={{
+                        title: '访客数',
+                        value: 475,
+                        icon: (
+                            <img
+                                style={imgStyle}
+                                src="https://gw.alipayobjects.com/mdn/rms_7bc6d8/afts/img/A*-jVKQJgA1UgAAAAAAAAAAABkARQnAQ"
+                                alt="icon"
+                            />
+                        ),
+                      }}
+                  />
+                  <StatisticCard
+                      statistic={{
+                        title: '支付成功订单数',
+                        value: 87,
+                        icon: (
+                            <img
+                                style={imgStyle}
+                                src="https://gw.alipayobjects.com/mdn/rms_7bc6d8/afts/img/A*FPlYQoTNlBEAAAAAAAAAAABkARQnAQ"
+                                alt="icon"
+                            />
+                        ),
+                      }}
+                  />
+                  <StatisticCard
+                      statistic={{
+                        title: '浏览量',
+                        value: 1754,
+                        icon: (
+                            <img
+                                style={imgStyle}
+                                src="https://gw.alipayobjects.com/mdn/rms_7bc6d8/afts/img/A*pUkAQpefcx8AAAAAAAAAAABkARQnAQ"
+                                alt="icon"
+                            />
+                        ),
+                      }}
+                  />
+                </StatisticCard.Group>
               </Card>
             </Col>
           </Row>
@@ -92,12 +84,6 @@ const Analysis = () => {
           <Row gutter={24}>
             <Col lg={24} md={24}>
               <Card bordered={true} style={{ marginBottom: 24 }} loading={loading}>
-                <RcResizeObserver
-                    key="resize-observer"
-                    onResize={(offset) => {
-                      setResponsive(offset.width < 596);
-                    }}
-                >
                   <ProCard
                       title="数据概览"
                       extra="2019年9月28日 星期五"
@@ -162,7 +148,6 @@ const Analysis = () => {
                         }
                     />
                   </ProCard>
-                </RcResizeObserver>
               </Card>
             </Col>
           </Row>

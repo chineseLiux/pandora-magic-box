@@ -45,7 +45,7 @@ const Login = ({currentUser, dispatch}: {currentUser: CurrentUser, dispatch: Dis
     }
   })
   const submit = async ({username, password}: { username: string, password: string }) => {
-    await waitTime(2000);
+    await waitTime(1000);
     if (username !== 'admin' || password !== '123123') {
       message.error('账号或密码错误！')
       return;

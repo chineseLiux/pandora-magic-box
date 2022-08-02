@@ -141,19 +141,19 @@ const userData: CurrentUser = {
           name: '分析页',
           icon: 'DashboardOutlined',
           path: 'analysis',
-          element: 'dashboard/Analysis'
+          element: 'dashboard/Analysis/index.tsx'
         },
         {
           name: '监控页',
           icon: 'DashboardOutlined',
           path: 'monitor',
-          element: 'dashboard/Monitor'
+          element: 'dashboard/Monitor/index.tsx'
         },
         {
           name: '工作台',
           icon: 'DashboardOutlined',
           path: 'workplace',
-          element: 'dashboard/Workplace'
+          element: 'dashboard/Workplace/index.tsx'
         },
       ],
     },
@@ -166,13 +166,13 @@ const userData: CurrentUser = {
           name: '个人信息',
           icon: 'UserOutlined',
           path: 'center',
-          element: 'account/Center'
+          element: 'account/Center/index.tsx'
         },
         {
           name: '个人设置',
           icon: 'UserOutlined',
           path: 'settings',
-          element: 'account/Settings'
+          element: 'account/Settings/index.tsx'
         },
       ],
     },
@@ -185,7 +185,7 @@ const userData: CurrentUser = {
           name: '用户管理',
           icon: 'UserOutlined',
           path: 'userManager',
-          element: 'system/UserManager'
+          element: 'system/UserManager/index.tsx'
         },
       ],
     },

@@ -7,7 +7,7 @@ import type { NoticeIconTabProps } from '../NoticeList';
 import NoticeList from '../NoticeList';
 import HeaderDropdown from '@/components/HeaderDropdown';
 import styles from '../index.module.less';
-import {NoticeIconItem} from "@/redux/store/typings";
+import {NoticeIconItem} from "@/store/types";
 
 const { TabPane } = Tabs;
 export type NoticeIconProps = {
