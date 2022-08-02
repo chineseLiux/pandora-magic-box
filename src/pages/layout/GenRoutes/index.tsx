@@ -1,4 +1,4 @@
-import {RouteInfo} from "@/redux/store/typings";
+import {RouteInfo} from "@/store/types";
 import {Outlet, Route} from "react-router-dom";
 import React from "react";
 

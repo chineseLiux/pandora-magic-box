@@ -2,7 +2,6 @@ import {connect} from "react-redux";
 import {Navigate, useLocation} from "react-router-dom";
 
 const RequireAuth = (props: any) => {
-  console.log(props)
   let location = useLocation();
   if (!props.currentUser) {
     return <Navigate to='/login' state={{ from: location }} replace />

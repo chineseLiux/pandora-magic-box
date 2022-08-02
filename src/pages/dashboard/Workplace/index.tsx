@@ -2,7 +2,7 @@ import {PageContainer} from "@ant-design/pro-components";
 import {Row, Col, Skeleton, Statistic, Avatar} from "antd";
 import styles from './index.module.less';
 import React from "react";
-import {CurrentUser} from "@/redux/store/typings";
+import {CurrentUser} from "@/store/types";
 
 
 const PageHeaderContent: React.FC<{ currentUser: Partial<CurrentUser> }> = ({ currentUser }) => {
