@@ -50,7 +50,15 @@ const Layout = ({currentUser}: {currentUser: CurrentUser}) => {
         path: parentPath + '/' + route.path,
         element:
             <React.Suspense
-                fallback={<Spin />}
+                fallback={
+                  <div style={{
+                    margin: '20px 0',
+                    padding: '30px 50px',
+                    textAlign: 'center',
+                  }}>
+                    <Spin ></Spin>
+                  </div>
+                }
             >
               <Components />
             </React.Suspense>,

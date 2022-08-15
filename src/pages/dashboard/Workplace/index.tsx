@@ -45,6 +45,14 @@ const Workplace = () => {
   return (
       <>
         <PageContainer
+            header={{
+              title: '工作台',
+              ghost: false,
+              breadcrumb: {
+                routes: [
+                ],
+              }
+            }}
             content={
               <PageHeaderContent
                   currentUser={{
@@ -62,6 +70,7 @@ const Workplace = () => {
         >
           <Row gutter={24}>
             <Col xl={16} lg={24} md={24} sm={24} xs={24}>
+              qweqw
             </Col>
           </Row>
         </PageContainer>
