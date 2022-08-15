@@ -2,81 +2,28 @@ import {ProCard, Statistic, StatisticCard} from '@ant-design/pro-components';
 import React, {useEffect, useState} from 'react';
 import {GridContent} from "@ant-design/pro-layout";
 import {Card, Col, Row} from "antd";
-const imgStyle = {
-  display: 'block',
-  width: 42,
-  height: 42,
-};
+import HexGrid from "@/pages/dashboard/Analysis/components/HexGrid";
+import moment from "moment";
+import ChessList, {ChessTyping} from "@/store/chess";
+import EquipDataList, {EquipTyping} from "@/store/equip";
+import HexDataList, {HexTyping} from "@/store/hex";
+import JobDataList, {JobTyping} from "@/store/job";
 
 const Analysis = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [responsive, setResponsive] = useState(false);
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-  }, [])
 
+  let chess_data_list: Array<ChessTyping> = ChessList;
+  let equip_data_list: Array<EquipTyping> = EquipDataList;
+  let hex_data_list: Array<HexTyping> = HexDataList;
+  let job_data_list: Array<JobTyping> = JobDataList;
   return (
       <>
         <GridContent>
           <Row gutter={24}>
             <Col lg={24} md={24}>
-              <Card bordered={true} style={{ marginBottom: 24 }} loading={loading}>
-                <StatisticCard.Group direction={responsive ? 'column' : 'row'}>
-                  <StatisticCard
-                      statistic={{
-                        title: '支付金额',
-                        value: 2176,
-                        icon: (
-                            <img
-                                style={imgStyle}
-                                src="https://gw.alipayobjects.com/mdn/rms_7bc6d8/afts/img/A*dr_0RKvVzVwAAAAAAAAAAABkARQnAQ"
-                                alt="icon"
-                            />
-                        ),
-                      }}
-                  />
-                  <StatisticCard
-                      statistic={{
-                        title: '访客数',
-                        value: 475,
-                        icon: (
-                            <img
-                                style={imgStyle}
-                                src="https://gw.alipayobjects.com/mdn/rms_7bc6d8/afts/img/A*-jVKQJgA1UgAAAAAAAAAAABkARQnAQ"
-                                alt="icon"
-                            />
-                        ),
-                      }}
-                  />
-                  <StatisticCard
-                      statistic={{
-                        title: '支付成功订单数',
-                        value: 87,
-                        icon: (
-                            <img
-                                style={imgStyle}
-                                src="https://gw.alipayobjects.com/mdn/rms_7bc6d8/afts/img/A*FPlYQoTNlBEAAAAAAAAAAABkARQnAQ"
-                                alt="icon"
-                            />
-                        ),
-                      }}
-                  />
-                  <StatisticCard
-                      statistic={{
-                        title: '浏览量',
-                        value: 1754,
-                        icon: (
-                            <img
-                                style={imgStyle}
-                                src="https://gw.alipayobjects.com/mdn/rms_7bc6d8/afts/img/A*pUkAQpefcx8AAAAAAAAAAABkARQnAQ"
-                                alt="icon"
-                            />
-                        ),
-                      }}
-                  />
-                </StatisticCard.Group>
+              <Card bordered={true} style={{ marginBottom: 24, textAlign: 'center' }} loading={loading}>
+                <HexGrid />
               </Card>
             </Col>
           </Row>
@@ -86,8 +33,9 @@ const Analysis = () => {
               <Card bordered={true} style={{ marginBottom: 24 }} loading={loading}>
                   <ProCard
                       title="数据概览"
-                      extra="2019年9月28日 星期五"
-                      split={responsive ? 'horizontal' : 'vertical'}
+                      extra={moment().format('YYYY-MM-DD')}
+                      // split={responsive ? 'horizontal' : 'vertical'}
+                      split={'vertical'}
                       headerBordered
                       bordered
                   >
@@ -96,31 +44,31 @@ const Analysis = () => {
                         <ProCard split="vertical">
                           <StatisticCard
                               statistic={{
-                                title: '昨日全部流量',
-                                value: 234,
-                                description: <Statistic title="较本月平均流量" value="8.04%" trend="down" />,
+                                title: '英雄数量',
+                                value: chess_data_list.length,
+                                suffix: '个',
                               }}
                           />
                           <StatisticCard
                               statistic={{
-                                title: '本月累计流量',
-                                value: 234,
-                                description: <Statistic title="月同比" value="8.04%" trend="up" />,
+                                title: '装备数量',
+                                value: equip_data_list.length,
+                                suffix: '个',
                               }}
                           />
                         </ProCard>
                         <ProCard split="vertical">
                           <StatisticCard
                               statistic={{
-                                title: '运行中实验',
-                                value: '12/56',
+                                title: '强化符文数量',
+                                value: hex_data_list.length,
                                 suffix: '个',
                               }}
                           />
                           <StatisticCard
                               statistic={{
-                                title: '历史实验总数',
-                                value: '134',
+                                title: '羁绊数量',
+                                value: job_data_list.length,
                                 suffix: '个',
                               }}
                           />
