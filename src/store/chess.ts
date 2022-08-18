@@ -29,18 +29,18 @@ export type ChessTyping = {
 const ChessList=[
     {
       "id": "11127",
-      "armor": "15",
-      "attackRange": "3",
-      "attackSpeed": "0.60",
+      "armor": "15",//护甲
+      "attackRange": "3",//攻击距离
+      "attackSpeed": "0.60",//攻速
       "buyPrice": "0",
       "class": "104",
-      "criticalStrikeChance": "25",
+      "criticalStrikeChance": "25",//暴击
       "heroPaint": "s7_ezreal",
       "heroType": "0",
-      "initAttackDamage": "40",
+      "initAttackDamage": "40",//物攻
       "initHP": "500",
       "initMP": "0",
-      "magicResist": "15",
+      "magicResist": "15",//魔抗
       "maxMP": "40",
       "name": "伊泽瑞尔",
       "picture": "https://game.gtimg.cn/images/lol/act/jkzlk/s5/hero/s7_head_ezreal.png",

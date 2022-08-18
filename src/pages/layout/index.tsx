@@ -3,11 +3,12 @@ import * as Icons from '@ant-design/icons';
 import {connect} from "react-redux";
 import type {MenuDataItem, ProSettings} from '@ant-design/pro-components';
 import {DefaultFooter, PageContainer, ProLayout, SettingDrawer} from "@ant-design/pro-components";
-import React, {useCallback, useState, Suspense, ReactNode, useEffect} from "react";
+import React, {useCallback, useState, ReactNode, useEffect} from "react";
 import {BackTop, Spin} from "antd";
 import {NavLink, Outlet, useLocation, useNavigate, useRoutes} from "react-router-dom";
 import RightContent from "@/pages/layout/RightContent";
 import NoFoundPage from "@/pages/error/NoFoundPage";
+import './index.less'
 
 const modules = import.meta.glob('@/pages/**/**.tsx');
 
@@ -94,6 +95,7 @@ const Layout = ({currentUser}: {currentUser: CurrentUser}) => {
                 pathname,
               }}
               waterMarkProps={{
+                offsetTop: 45,
                 content: currentUser?.email
               }}
               menuItemRender={

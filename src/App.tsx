@@ -1,6 +1,6 @@
 import Login from "./pages/login";
 import Layout from "./pages/layout";
-import './App.css'
+import './App.less'
 import {Route, Routes} from "react-router-dom";
 import Auth from "./pages/login/Auth";
 

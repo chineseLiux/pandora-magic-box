@@ -27,11 +27,11 @@ const HexGrid = () => {
         if(zero_num > -1) {
           let zero_info: ChessTyping | undefined = chess_data_list.at(zero_num);
           let heroPaint = zero_info?.heroPaint;
-          HexList.push(<Hexagon key={index + '' + columns_index} q={q_num} r={index} s={0} >
-            <Tooltip title="prompt text">
-            </Tooltip>
-          </Hexagon>);
-          // HexList.push(<Hexagon key={index + '' + columns_index} q={q_num} r={index} s={0} fill={heroPaint} ></Hexagon>);
+          // HexList.push(<Hexagon key={index + '' + columns_index} q={q_num} r={index} s={0} >
+          //   <Tooltip title="prompt text">
+          //   </Tooltip>
+          // </Hexagon>);
+          HexList.push(<Hexagon key={index + '' + columns_index} q={q_num} r={index} s={0} fill={heroPaint} ></Hexagon>);
           zero_num--;
         } else {
           HexList.push(<Hexagon key={index + '' + columns_index} q={q_num} r={index} s={0} ></Hexagon>);
