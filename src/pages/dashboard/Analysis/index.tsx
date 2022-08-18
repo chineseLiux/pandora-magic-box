@@ -1,5 +1,5 @@
 import {ProCard, Statistic, StatisticCard} from '@ant-design/pro-components';
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {GridContent} from "@ant-design/pro-layout";
 import {Card, Col, Row} from "antd";
 import HexGrid from "@/pages/dashboard/Analysis/components/HexGrid";
@@ -8,15 +8,19 @@ import ChessList, {ChessTyping} from "@/store/chess";
 import EquipDataList, {EquipTyping} from "@/store/equip";
 import HexDataList, {HexTyping} from "@/store/hex";
 import JobDataList, {JobTyping} from "@/store/job";
+import ParallelChess from "@/pages/dashboard/Analysis/components/ParallelChess";
+import LabelLineAdjust from "@/pages/dashboard/Analysis/components/LabelLineAdjust";
 
 const Analysis = () => {
   const [loading, setLoading] = useState(false);
   const [responsive, setResponsive] = useState(false);
+  const testRef: any = useRef<any>();
 
   let chess_data_list: Array<ChessTyping> = ChessList;
   let equip_data_list: Array<EquipTyping> = EquipDataList;
   let hex_data_list: Array<HexTyping> = HexDataList;
   let job_data_list: Array<JobTyping> = JobDataList;
+
   return (
       <>
         <GridContent>
@@ -75,24 +79,16 @@ const Analysis = () => {
                         </ProCard>
                       </ProCard>
                       <StatisticCard
-                          title="流量走势"
+                          title="英雄走势"
                           chart={
-                            <img
-                                alt={'流量走势'}
-                                src="https://gw.alipayobjects.com/zos/alicdn/_dZIob2NB/zhuzhuangtu.svg"
-                                width="100%"
-                            />
+                            <ParallelChess />
                           }
                       />
                     </ProCard>
                     <StatisticCard
-                        title="流量占用情况"
+                        title="分布"
                         chart={
-                          <img
-                              src="https://gw.alipayobjects.com/zos/alicdn/qoYmFMxWY/jieping2021-03-29%252520xiawu4.32.34.png"
-                              alt="大盘"
-                              width="100%"
-                          />
+                          <LabelLineAdjust />
                         }
                     />
                   </ProCard>
